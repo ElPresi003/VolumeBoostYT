@@ -331,7 +331,8 @@ static CGPoint initialTouchPoint;
     return %orig;
   }
 
-  NSMutableArray *mutableCategories = %orig.mutableCopy;
+  NSArray<NSNumber *> *originalCategories = %orig;
+NSMutableArray<NSNumber *> *mutableCategories = [originalCategories mutableCopy];
   if (mutableCategories) {
     // Insert our tweak section near the top
     [mutableCategories insertObject:@(TweakSection) atIndex:0];
